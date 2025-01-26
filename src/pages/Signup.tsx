@@ -1,22 +1,25 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import InputBox from '../components/ui/InputBox'
 import Button from '../components/ui/Button'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const userNameRef = useRef<HTMLInputElement>();
     const passwordRef = useRef<HTMLInputElement>();
-
+    const [responseMsg, setResponseMsg] = useState()
+    const navigate = useNavigate()
 
     const handlerSignup = async(e: any)=> {
         e.preventDefault()
     const userName = userNameRef.current?.value;
     const password = passwordRef.current?.value;
 
-    await axios.post("/api/v1/signup", {
+    const response = await axios.post("/api/v1/signup", {
         userName,
         password
-    })
+    }).then((response)=>  setResponseMsg(response.data.message))
+    navigate('/login')
     }
 
     return (

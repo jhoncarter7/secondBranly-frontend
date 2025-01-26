@@ -2,11 +2,12 @@ import React, { HtmlHTMLAttributes, useEffect, useRef } from 'react'
 import InputBox from '../components/ui/InputBox'
 import Button from '../components/ui/Button'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const userNameRef = useRef<HTMLInputElement>()
   const passwordRef = useRef<HTMLInputElement>()
-
+   const navigate = useNavigate()
    const handleSignin = async(e: any) =>{
     e.preventDefault()
     const userName = userNameRef.current?.value;
@@ -15,6 +16,7 @@ const Login = () => {
      userName,
      password
     })
+    navigate('/')
    }
   return (
     <div className='w-full h-screen my-auto '>
