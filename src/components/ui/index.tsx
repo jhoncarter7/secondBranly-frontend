@@ -4,9 +4,11 @@ export interface ButtonProps{
     variant: "primary" | "secondary";
     size: "sm"|"md"| "lg";
     text: string;
+    type?: any
     startIcon?: ReactNode;
     endIcon?: ReactNode;
     onclick?: ()=> void;
+    className?: string
 }
 
 export const varientProps = {
