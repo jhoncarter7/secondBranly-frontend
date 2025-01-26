@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import './App.css'
 import Dashboard from './pages/Dashboard'
-import { BrowserRouter, Route, Routes } from 'react-router'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 
